@@ -1,0 +1,11 @@
+package com.tistory.cchplugin.cchlecture.file;
+
+import com.tistory.cchplugin.cchlecture.Main;
+
+public class File {
+	public static Main plugin;
+
+	public static void setPlugin(Main MainPlugin) {
+		plugin = MainPlugin;
+	}
+}

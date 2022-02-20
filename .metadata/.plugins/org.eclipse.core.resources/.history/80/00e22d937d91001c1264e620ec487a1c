@@ -1,0 +1,11 @@
+package com.tistory.cchplugin.cchlecture.event;
+
+import org.bukkit.event.Listener;
+
+import com.tistory.cchplugin.cchlecture.Main;
+
+public class Event implements Listener {
+
+	public static Main plugin;
+
+}

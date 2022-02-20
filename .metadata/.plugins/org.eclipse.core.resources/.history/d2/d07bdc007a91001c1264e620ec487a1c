@@ -1,0 +1,52 @@
+package com.tistory.cchplugin.cchlecture;
+
+import java.util.HashMap;
+import java.util.UUID;
+
+import org.bukkit.Bukkit;
+import org.bukkit.command.ConsoleCommandSender;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.plugin.java.JavaPlugin;
+
+import net.md_5.bungee.api.ChatColor;
+
+public class Main extends JavaPlugin implements Listener {
+	ConsoleCommandSender console = Bukkit.getConsoleSender();
+
+	HashMap<UUID, Integer> map = new HashMap<UUID, Integer>();
+
+	@Override
+	public void onEnable() {
+		console.sendMessage(ChatColor.AQUA + "[플러그인 활성화 중 입니다.]");
+
+		getServer().getPluginManager().registerEvents(this, this);
+		// 서버의 플러그인 매니저에 이벤트를 등록합니다.
+	}
+
+	@Override
+	public void onDisable() {
+		console.sendMessage(ChatColor.AQUA + "[플러그인 비활성화 중 입니다.]");
+	}
+
+	@EventHandler
+	// PlayerJoinEvent : Player가 들어왔을 때 보여주는 이벤트
+	public void join(PlayerJoinEvent e) {
+
+		UUID uuid = e.getPlayer().getUniqueId();
+		Inventory inverntory = e.getPlayer().getInventory();
+
+		if (map.containsKey(uuid)) {
+			map.put(uuid, map.get(uuid) + 1);
+		} else {
+			map.put(uuid, 1);
+		}
+
+		int count = map.get(uuid);
+
+		e.setJoinMessage(ChatColor.RED + (count + "입장했습니다!"));
+		
+	}
+
+}

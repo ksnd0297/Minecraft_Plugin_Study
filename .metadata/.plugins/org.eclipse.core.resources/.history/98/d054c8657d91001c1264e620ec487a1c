@@ -1,0 +1,7 @@
+package com.tistory.cchplugin.cchlecture.command;
+
+import org.bukkit.command.CommandExecutor;
+
+public class Command implements CommandExecutor {
+
+}
