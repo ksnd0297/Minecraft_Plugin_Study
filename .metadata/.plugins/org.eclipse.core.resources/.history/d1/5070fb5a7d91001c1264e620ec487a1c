@@ -1,5 +1,0 @@
-package com.tistory.cchplugin.cchlecture.command;
-
-public class Command implements CommandExecutor {
-
-}

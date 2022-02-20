@@ -1,5 +1,0 @@
-package com.tistory.cchplugin.cchlecture.event;
-
-public class Event implements Listener{
-
-}

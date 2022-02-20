@@ -1,7 +1,0 @@
-package com.tistory.cchplugin.cchlecture.event;
-
-import org.bukkit.event.Listener;
-
-public class Event implements Listener {
-
-}
