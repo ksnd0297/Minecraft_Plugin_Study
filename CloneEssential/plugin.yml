@@ -1,4 +1,4 @@
-main : com.tistory.ksnd0297.main.CloneEssentialMain
+﻿main : com.tistory.ksnd0297.main.CloneEssentialMain
 name : CloneEssential
 version : 1.0.0
 author : ksnd0297
@@ -11,5 +11,8 @@ commands :
     description : 클론에센셜_시간
     usage : /시간 [아침 | 점심 | 저녁 | 새벽]
   홈 :
-    description : 클론에센셜_스폰
+    description : 클론에센셜_홈
     usage : /홈 [지정 | 이동]
+　스폰 :
+　  Description : 클론에센셜_스폰
+　  Usage : /스폰 [지정 | 이동]
