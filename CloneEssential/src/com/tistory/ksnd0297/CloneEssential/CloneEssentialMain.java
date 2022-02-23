@@ -5,6 +5,7 @@ import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import com.tistory.ksnd0297.CloneEssential.command.CloneEssentialCommandSpawn;
 import com.tistory.ksnd0297.CloneEssential.command.CloneEssentialCommandTime;
 import com.tistory.ksnd0297.CloneEssential.command.CloneEssentialCommandWeather;
 import com.tistory.ksnd0297.CloneEssential.event.EventPlayerJoin;
@@ -28,5 +29,6 @@ public class CloneEssentialMain extends JavaPlugin implements Listener {
 
 		getCommand("날씨").setExecutor(new CloneEssentialCommandWeather());
 		getCommand("시간").setExecutor(new CloneEssentialCommandTime());
+		getCommand("스폰").setExecutor(new CloneEssentialCommandSpawn());
 	}
 }

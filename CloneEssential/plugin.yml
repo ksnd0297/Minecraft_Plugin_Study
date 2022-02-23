@@ -13,3 +13,6 @@ commands :
   시간 :
     description : 클론에센셜_시간
     usage : /시간 설정 [틱]
+  스폰 :
+    description : 클론에센셜_스폰
+    usage : /스폰 [지정 or 이동]
