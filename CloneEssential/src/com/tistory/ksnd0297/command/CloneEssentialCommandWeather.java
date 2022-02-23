@@ -1,4 +1,4 @@
-package com.tistory.ksnd0297.CloneEssential.command;
+package com.tistory.ksnd0297.command;
 
 import org.bukkit.Bukkit;
 import org.bukkit.World;

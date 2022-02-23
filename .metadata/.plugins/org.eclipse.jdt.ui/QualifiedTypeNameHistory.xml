@@ -8,7 +8,12 @@
     <fullyQualifiedTypeName name="org.bukkit.command.Command"/>
     <fullyQualifiedTypeName name="org.bukkit.command.CommandSender"/>
     <fullyQualifiedTypeName name="org.bukkit.command.CommandSender.Spigot"/>
-    <fullyQualifiedTypeName name="org.bukkit.Bukkit"/>
     <fullyQualifiedTypeName name="org.bukkit.event.Listener"/>
+    <fullyQualifiedTypeName name="org.bukkit.Bukkit"/>
+    <fullyQualifiedTypeName name="java.io.FileReader"/>
+    <fullyQualifiedTypeName name="java.io.IOException"/>
+    <fullyQualifiedTypeName name="java.io.FileNotFoundException"/>
+    <fullyQualifiedTypeName name="org.bukkit.entity.Player"/>
+    <fullyQualifiedTypeName name="org.bukkit.Location"/>
     <fullyQualifiedTypeName name="net.md_5.bungee.api.ChatColor"/>
 </qualifiedTypeNameHistroy>

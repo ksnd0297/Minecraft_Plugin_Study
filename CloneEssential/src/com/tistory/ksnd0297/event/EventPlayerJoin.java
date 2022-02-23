@@ -1,4 +1,4 @@
-package com.tistory.ksnd0297.CloneEssential.event;
+package com.tistory.ksnd0297.event;
 
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

@@ -11,11 +11,12 @@
         </sealing>
     </manifest>
     <selectedElements exportClassFiles="true" exportJavaFiles="false" exportOutputFolder="false">
-        <javaElement handleIdentifier="=CloneEssential/src"/>
         <file path="/CloneEssential/.gitignore"/>
-        <file path="/CloneEssential/.classpath"/>
         <file path="/CloneEssential/.project"/>
         <file path="/CloneEssential/plugin.yml"/>
+        <javaElement handleIdentifier="=CloneEssential/src"/>
+        <file path="/CloneEssential/.classpath"/>
+        <file path="/CloneEssential/config.yml"/>
         <file path="/CloneEssential/save.jardesc"/>
     </selectedElements>
 </jardesc>

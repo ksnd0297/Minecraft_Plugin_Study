@@ -1,4 +1,4 @@
-package com.tistory.ksnd0297.CloneEssential.command;
+package com.tistory.ksnd0297.command;
 
 import org.bukkit.World;
 import org.bukkit.command.Command;
@@ -14,15 +14,32 @@ public class CloneEssentialCommandTime implements CommandExecutor {
 		World world = player.getWorld();
 
 		if (player.isOp()) {
-			if (args.length != 2)
+			if (args.length != 1)
 				return false;
 
-			if (args[0].equals("설정")) {
-				int time = Integer.parseInt(args[1]);
-				world.setTime(time);
-			} else
+			switch (args[0]) {
+			case "아침": {
+				world.setTime(0);
+				break;
+			}
+			case "점심": {
+				world.setTime(6000);
+				break;
+			}
+			case "저녁": {
+				world.setTime(12000);
+				break;
+			}
+			case "새벽": {
+				world.setTime(20000);
+				break;
+			}
+			default: {
 				return false;
-		}
+			}
+			}
+		} else
+			return false;
 
 		return true;
 	}
