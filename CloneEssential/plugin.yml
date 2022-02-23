@@ -13,6 +13,4 @@ commands :
   홈 :
     description : 클론에센셜_홈
     usage : /홈 [지정 | 이동]
-　스폰 :
-　  Description : 클론에센셜_스폰
-　  Usage : /스폰 [지정 | 이동]
+
