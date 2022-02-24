@@ -1,13 +1,15 @@
 package com.tistory.ksnd0297.command;
 
-import org.bukkit.ChatColor;
+import org.bukkit.Difficulty;
 import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class CloneEssentialCommandTime implements CommandExecutor {
+import net.md_5.bungee.api.ChatColor;
+
+public class CloneEssentialCommandDifficult implements CommandExecutor {
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String s, String[] args) {
@@ -19,28 +21,28 @@ public class CloneEssentialCommandTime implements CommandExecutor {
 				return false;
 
 			switch (args[0]) {
-			case "아침": {
-				world.setTime(0);
-				player.sendMessage("");
+			case "평화로움": {
+				world.setDifficulty(Difficulty.PEACEFUL);
 				break;
 			}
-			case "점심": {
-				world.setTime(6000);
+			case "쉬움": {
+				world.setDifficulty(Difficulty.EASY);
 				break;
 			}
-			case "저녁": {
-				world.setTime(12000);
+			case "보통": {
+				world.setDifficulty(Difficulty.NORMAL);
 				break;
 			}
-			case "새벽": {
-				world.setTime(20000);
+			case "어려움": {
+				world.setDifficulty(Difficulty.HARD);
 				break;
 			}
 			default: {
 				return false;
 			}
 			}
-			player.sendMessage(ChatColor.BLUE + "시간이 [" + args[0] + "] 으로 설정 되었습니다.");
+			player.sendMessage(ChatColor.BLUE + "난이도가 " + args[0] + "으로 설정되었습니다.");
+
 		} else {
 			player.sendMessage(ChatColor.BLUE + "플레이어는 권한이 없습니다!");
 		}

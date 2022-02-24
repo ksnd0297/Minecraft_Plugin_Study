@@ -25,32 +25,28 @@ public class CloneEssentialCommandWeather implements CommandExecutor {
 			switch (args[0]) {
 			case "맑음": {
 				world.setClearWeatherDuration(6000);
-				console.sendMessage(ChatColor.BLUE + "날씨가 맑음으로 설정되었습니다.");
 				player.sendMessage(ChatColor.BLUE + "날씨가 맑음으로 설정되었습니다.");
 				break;
 			}
 			case "비": {
 				world.setStorm(true);
-				console.sendMessage(ChatColor.BLUE + "날씨가 비로 설정되었습니다.");
 				player.sendMessage(ChatColor.BLUE + "날씨가 비로 설정되었습니다.");
 				break;
 			}
 			case "천둥": {
 				world.setThundering(true);
-				console.sendMessage(ChatColor.BLUE + "날씨가 천둥으로 설정되었습니다.");
 				player.sendMessage(ChatColor.BLUE + "날씨가 천둥으로 설정되었습니다.");
 				break;
 			}
 			default: {
-				player.sendMessage("날씨는 맑음, 비, 천둥 중에 정할 수 있습니다.");
+				player.sendMessage(ChatColor.BLUE + "날씨는 맑음, 비, 천둥 중에 정할 수 있습니다.");
 				break;
 			}
 			}
-			return true;
 		} else {
-			player.sendMessage("명령어를 사용 할 권한이 없습니다!");
+			player.sendMessage(ChatColor.BLUE + "명령어를 사용 할 권한이 없습니다!");
 		}
-		return false; // 실행
+		return true; // 실행
 	}
 
 }

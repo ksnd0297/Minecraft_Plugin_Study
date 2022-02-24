@@ -13,4 +13,15 @@ commands :
   홈 :
     description : 클론에센셜_홈
     usage : /홈 [지정 | 이동]
-
+  스폰 :
+    description : 클론에센셜_스폰
+    usage : /스폰 [지정 | 이동]
+  게임모드 :
+    description : 클론에센셜_게임모드
+    usage : /게임모드 [크리에이티브 | 서바이벌]
+  텔레포트 :
+    description : 클론에센셜_텔레포트
+    usage : /텔레포트 [대상]
+  난이도 :
+    description : 클론에센셜_난이도
+    usage : /난이도 [평화로움 | 쉬움 | 보통 | 어려움]
