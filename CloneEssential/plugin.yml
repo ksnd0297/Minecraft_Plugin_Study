@@ -25,3 +25,12 @@ commands :
   난이도 :
     description : 클론에센셜_난이도
     usage : /난이도 [평화로움 | 쉬움 | 보통 | 어려움]
+  배고픔 :
+    description : 클론에센셜_배고픔
+    usage : /배고픔 [0 ~ 10]
+  체력 :
+    description : 클론에센셜_체력
+    usage : /체력 [0 ~ 20]
+  자살 :
+    description : 클론에센셜_자살
+    usage : /자살

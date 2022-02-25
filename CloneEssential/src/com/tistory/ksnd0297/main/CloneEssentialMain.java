@@ -6,9 +6,12 @@ import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import com.tistory.ksnd0297.command.CloneEssentialCommandDifficult;
+import com.tistory.ksnd0297.command.CloneEssentialCommandFeed;
 import com.tistory.ksnd0297.command.CloneEssentialCommandGameMode;
+import com.tistory.ksnd0297.command.CloneEssentialCommandHeal;
 import com.tistory.ksnd0297.command.CloneEssentialCommandHome;
 import com.tistory.ksnd0297.command.CloneEssentialCommandSpawn;
+import com.tistory.ksnd0297.command.CloneEssentialCommandSuicide;
 import com.tistory.ksnd0297.command.CloneEssentialCommandTeleport;
 import com.tistory.ksnd0297.command.CloneEssentialCommandTime;
 import com.tistory.ksnd0297.command.CloneEssentialCommandWeather;
@@ -38,5 +41,8 @@ public class CloneEssentialMain extends JavaPlugin implements Listener {
 		getCommand("게임모드").setExecutor(new CloneEssentialCommandGameMode());
 		getCommand("텔레포트").setExecutor(new CloneEssentialCommandTeleport());
 		getCommand("난이도").setExecutor(new CloneEssentialCommandDifficult());
+		getCommand("배고픔").setExecutor(new CloneEssentialCommandFeed());
+		getCommand("체력").setExecutor(new CloneEssentialCommandHeal());
+		getCommand("자살").setExecutor(new CloneEssentialCommandSuicide());
 	}
 }
