@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="&#x09;public void mapToFile(File f, HashMap&lt;UUID, Location&gt; map) {"/>
+		<item key="selection" value="package ksnd0297.db;"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="package ksnd0297.db;"/>
 			<item value="&#x09;public void mapToFile(File f, HashMap&lt;UUID, Location&gt; map) {"/>
 			<item value="package com.tistory.cchplugin.cchlecture;"/>
 		</list>

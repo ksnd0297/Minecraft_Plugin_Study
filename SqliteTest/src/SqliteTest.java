@@ -3,7 +3,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class SQLiteTest {
+public class SqliteTest {
 
 	public static void main(String[] args) {
 		Connection con = null;

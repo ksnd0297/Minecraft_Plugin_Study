@@ -53,13 +53,14 @@
 		<item key="jarOptionsWizardPage.STORE_USE_SRC_FOLDERS" value="false"/>
 		<item key="jarOptionsWizardPage.BUILD_IF_NEEDED" value="true"/>
 		<item key="jarOptionsWizardPage.SAVE_DESCRIPTION" value="true"/>
-		<item key="jarOptionsWizardPage.DESCRIPTION_LOCATION" value="/CloneEssential/save.jardesc"/>
+		<item key="jarOptionsWizardPage.DESCRIPTION_LOCATION" value="/CloneEconomy/save.jardesc"/>
 		<item key="JarManifestWizardPage.GENERATE_MANIFEST" value="true"/>
 		<item key="JarManifestWizardPage.SAVE_MANIFEST" value="false"/>
 		<item key="JarManifestWizardPage.REUSE_MANIFEST" value="false"/>
 		<item key="JarManifestWizardPage.MANIFEST_LOCATION" value=""/>
 		<item key="JarManifestWizardPage.SEAL_JAR" value="false"/>
 		<list key="JarPackageWizardPage.DESTINATION_NAMES_ID">
+			<item value="C:\Users\김동환\Desktop\Minecraft Server\plugins\CloneEconomy.jar"/>
 			<item value="C:\Users\김동환\Desktop\Minecraft Server\plugins\CloneEssential.jar"/>
 			<item value="C:\Users\김동환\Desktop\Minecraft Server\plugins\plugin.jar"/>
 		</list>
@@ -90,5 +91,17 @@
 		<item key="updateQualifiedNames" value="false"/>
 		<item key="patterns" value="*"/>
 		<item key="renameSubpackages" value="true"/>
+	</section>
+	<section name="org.eclipse.jdt.internal.ui.dialogs.OpenTypeSelectionDialog2">
+		<item key="ShowStatusLine" value="true"/>
+		<item key="History" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0D;&#x0A;&lt;History/&gt;"/>
+		<item key="WorkingSet" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0D;&#x0A;&lt;workingSet workingSetName=&quot;&quot;/&gt;"/>
+		<section name="DialogBoundsSettings">
+			<item key="DIALOG_HEIGHT" value="500"/>
+			<item key="DIALOG_WIDTH" value="600"/>
+			<item key="DIALOG_X_ORIGIN" value="668"/>
+			<item key="DIALOG_Y_ORIGIN" value="191"/>
+			<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
+		</section>
 	</section>
 </section>
