@@ -11,11 +11,13 @@
         </sealing>
     </manifest>
     <selectedElements exportClassFiles="true" exportJavaFiles="false" exportOutputFolder="false">
-        <file path="/CloneEconomy/save.jardesc"/>
         <javaElement handleIdentifier="=CloneEconomy/src"/>
-        <file path="/CloneEconomy/.gitignore"/>
         <file path="/CloneEconomy/.classpath"/>
+        <file path="/CloneEconomy/Economy.db"/>
+        <file path="/CloneEconomy/save.jardesc"/>
+        <file path="/CloneEconomy/.gitignore"/>
         <file path="/CloneEconomy/.project"/>
         <file path="/CloneEconomy/plugin.yml"/>
+        <file path="/CloneEconomy/Economy.sqbpro"/>
     </selectedElements>
 </jardesc>

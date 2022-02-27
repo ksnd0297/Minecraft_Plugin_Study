@@ -18,7 +18,7 @@ public class PlayerJoin implements Listener {
 
 		CloneEconomyDB db = new CloneEconomyDB();
 
-		if (db.PlayerJoinInsert(Uuid.toString(), 500)) {
+		if (db.PlayerJoin(Uuid.toString(), 500)) {
 			player.sendMessage(ChatColor.BLUE + player.getName() + "님 환영합니다!");
 		} else {
 			player.sendMessage(ChatColor.BLUE + player.getName() + "님 입장하였습니다");

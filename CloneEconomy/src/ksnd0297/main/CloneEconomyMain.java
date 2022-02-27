@@ -6,6 +6,7 @@ import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import ksnd0297.command.CloneEconomyMoney;
 import ksnd0297.event.PlayerJoin;
 
 public class CloneEconomyMain extends JavaPlugin implements Listener {
@@ -22,6 +23,6 @@ public class CloneEconomyMain extends JavaPlugin implements Listener {
 		console.sendMessage(ChatColor.AQUA + "[플러그인 활성화 중 입니다]");
 
 		getServer().getPluginManager().registerEvents(new PlayerJoin(), this);
+		getCommand("돈").setExecutor(new CloneEconomyMoney(this));
 	}
-
 }

@@ -7,9 +7,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class CloneEconomyDB {
+	Connection con = null;
 
 	private Connection Connect() {
-		Connection con = null;
 
 		try {
 			Class.forName("org.sqlite.JDBC");
@@ -21,9 +21,9 @@ public class CloneEconomyDB {
 		return con;
 	}
 
-	public Boolean PlayerJoinInsert(String Uuid, int Money) {
+	public Boolean PlayerJoin(String Uuid, int Money) {
 		Connection con = this.Connect();
-		String sql = "SELECT Money FROM Person WHERE Uuid=?";
+		String sql = "SELECT * FROM Person WHERE Uuid=?";
 		try {
 			PreparedStatement pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, Uuid);
@@ -49,6 +49,37 @@ public class CloneEconomyDB {
 			error.printStackTrace();
 			return false;
 		}
+	}
+
+	public int getMoney(String Uuid) {
+		Connection con = this.Connect();
+		String sql = "SELECT Money FROM Person WHERE Uuid = ?";
+		try {
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, Uuid);
+
+			ResultSet row = pstmt.executeQuery();
+			while (row.next()) {
+				return row.getInt(1);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+
+	public boolean UpdateMoney(String Uuid, int Money) {
+		Connection con = this.Connect();
+		String sql = "UPDATE Person set Money = ? where Uuid = ?";
+		try {
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, Money);
+			pstmt.setString(2, Uuid);
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 
 }
