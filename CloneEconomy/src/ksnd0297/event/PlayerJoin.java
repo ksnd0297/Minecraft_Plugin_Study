@@ -1,36 +1,27 @@
 package ksnd0297.event;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.util.UUID;
 
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
+import ksnd0297.db.CloneEconomyDB;
+
 public class PlayerJoin implements Listener {
 	@EventHandler
 	public void join(PlayerJoinEvent e) {
-		Connection conn = null;
 		Player player = e.getPlayer();
-		UUID uuid = player.getUniqueId();
+		UUID Uuid = player.getUniqueId();
 
-		String sql = "INSERT INTO Test VALUES(?, ?)";
-		try {
-			Class.forName("org.sqlite.JDBC");
-			String dbFile = "Economy.db";
-			conn = DriverManager.getConnection("jdbc:sqlite:" + dbFile);
-			PreparedStatement pstmt = conn.prepareStatement(sql);
+		CloneEconomyDB db = new CloneEconomyDB();
 
-			pstmt.setString(1, uuid.toString());
-			pstmt.setInt(2, 500);
-
-			pstmt.executeUpdate();
-
-		} catch (Exception error) {
-			error.printStackTrace();
+		if (db.PlayerJoinInsert(Uuid.toString(), 500)) {
+			player.sendMessage(ChatColor.BLUE + player.getName() + "님 환영합니다!");
+		} else {
+			player.sendMessage(ChatColor.BLUE + player.getName() + "님 입장하였습니다");
 		}
 	}
 
