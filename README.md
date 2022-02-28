@@ -5,3 +5,12 @@
 
 ## 이코노미 플러그인
 DB를 마인크래프트 서버를 실행한  채로 SQLite 프로그램에서 Delete 등 DB를 변경하는 작업을 할 시 Lock이 걸리는 문제 발생
+
+## PlayerInteractEvent
+PlayerInteractEvent에 관하여 RIGHT_CLICK 에는 일반 HAND 와 OFFHAND 가 2번 들어가게 되어 함수가 두 번 실행되는 문제가 발생
+e.getHand().equals(EquipmentSlot.HAND)를 통해 OFFHAND의 작동을 방지
+
+
+## 클론 월드에딧 플러그인
+Material.WOODEN_AXE를 사용하려 하면 api-version을 plugin.yml에 기재하여 달라는 문제 발생
+plugin.yml에 api-version : 1.18 을 기재하여 해결 (당시 버전 : 1.18.1은 최신버전이라 api-version이 1.18과 동일하다고 예상)
