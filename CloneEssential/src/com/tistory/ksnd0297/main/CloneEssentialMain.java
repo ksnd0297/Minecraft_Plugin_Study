@@ -24,13 +24,8 @@ public class CloneEssentialMain extends JavaPlugin implements Listener {
 	ConsoleCommandSender console = Bukkit.getConsoleSender();
 
 	@Override
-	public void onDisable() {
-		console.sendMessage(ChatColor.AQUA + "[플러그인 비활성화 중 입니다.]");
-	}
-
-	@Override
 	public void onEnable() {
-		console.sendMessage(ChatColor.AQUA + "[플러그인 활성화 중 입니다.]");
+		console.sendMessage(ChatColor.AQUA + "[CloneEssential] 활성화 중");
 
 		getServer().getPluginManager().registerEvents(new EventPlayerJoin(), this);
 
@@ -44,5 +39,10 @@ public class CloneEssentialMain extends JavaPlugin implements Listener {
 		getCommand("배고픔").setExecutor(new CloneEssentialCommandFeed());
 		getCommand("체력").setExecutor(new CloneEssentialCommandHeal());
 		getCommand("자살").setExecutor(new CloneEssentialCommandSuicide());
+	}
+
+	@Override
+	public void onDisable() {
+		console.sendMessage(ChatColor.AQUA + "[CloneEssential] 비활성화 중");
 	}
 }
