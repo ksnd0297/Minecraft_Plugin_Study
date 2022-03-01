@@ -13,12 +13,12 @@ public class PraticePluginMain extends JavaPlugin implements Listener {
 
 	@Override
 	public void onEnable() {
+		System.out.println("1111");
 		WorldEdit worldEdit = new WorldEdit();
-		WorldEditFill worldEditFill = new WorldEditFill(worldEdit);
 		Bukkit.getConsoleSender().sendMessage(ChatColor.AQUA + "[PraticePlugin] 활성화 중");
 		getServer().getPluginManager().registerEvents(worldEdit, this);
 		getCommand("도끼").setExecutor(new WorldEditAxe());
-		getCommand("채우기").setExecutor(worldEditFill);
+		getCommand("채우기").setExecutor(new WorldEditFill(worldEdit));
 	}
 
 	@Override

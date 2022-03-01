@@ -12,17 +12,17 @@ import ksnd0297.event.WorldEdit;
 import net.md_5.bungee.api.ChatColor;
 
 public class WorldEditFill implements CommandExecutor {
-	private Location startBlock = null;
-	private Location endBlock = null;
+	private WorldEdit worldEdit;
 
 	public WorldEditFill(WorldEdit worldEdit) {
-		startBlock = worldEdit.getLeftClickBlock();
-		endBlock = worldEdit.getRightClickBlock();
+		this.worldEdit = worldEdit;
 	}
 
 	@Override
 	// / 채우기 블록
 	public boolean onCommand(CommandSender sender, Command command, String s, String[] args) {
+		Location startBlock = worldEdit.getLeftClickBlock();
+		Location endBlock = worldEdit.getRightClickBlock();
 		Player player = (Player) sender;
 		World world = player.getWorld();
 
