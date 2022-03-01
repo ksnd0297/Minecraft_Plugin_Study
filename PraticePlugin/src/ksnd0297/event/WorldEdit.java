@@ -12,10 +12,11 @@ import org.bukkit.inventory.EquipmentSlot;
 public class WorldEdit implements Listener {
 	private Location LeftClickBlock = null;
 	private Location RightClickBlock = null;
+	private Player player = null;
 
 	@EventHandler
 	public void setPosition(PlayerInteractEvent e) {
-		Player player = e.getPlayer();
+		this.player = e.getPlayer();
 
 		if (e.getAction() == Action.LEFT_CLICK_BLOCK) {
 			Block block = e.getClickedBlock();
@@ -27,18 +28,21 @@ public class WorldEdit implements Listener {
 	}
 
 	public Location getLeftClickBlock() {
-		return LeftClickBlock;
+		return this.LeftClickBlock;
 	}
 
 	public void setLeftClickBlock(Location leftClickBlock) {
 		LeftClickBlock = leftClickBlock;
+		player.sendMessage("좌클릭 지정");
+
 	}
 
 	public Location getRightClickBlock() {
-		return RightClickBlock;
+		return this.RightClickBlock;
 	}
 
 	public void setRightClickBlock(Location rightClickBlock) {
 		RightClickBlock = rightClickBlock;
+		player.sendMessage("우클릭 지정");
 	}
 }

@@ -19,7 +19,7 @@ public class WorldEditAxe implements CommandExecutor {
 
 		if (player.isOp()) {
 
-			ItemStack axe = new ItemStack(Material.WOODEN_AXE, 1);
+			ItemStack axe = new ItemStack(Material.DIAMOND_AXE, 1);
 			ItemMeta axeMeta = axe.getItemMeta();
 
 			axeMeta.setDisplayName(ChatColor.GOLD + "월드에딧");
