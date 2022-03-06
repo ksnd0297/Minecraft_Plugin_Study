@@ -15,12 +15,12 @@ public class CloneEconomyMain extends JavaPlugin implements Listener {
 
 	@Override
 	public void onDisable() {
-		console.sendMessage(ChatColor.AQUA + "[플러그인 비활성화 중 입니다]");
+		console.sendMessage(ChatColor.AQUA + "[CloneEconomy] 활성화 중");
 	}
 
 	@Override
 	public void onEnable() {
-		console.sendMessage(ChatColor.AQUA + "[플러그인 활성화 중 입니다]");
+		console.sendMessage(ChatColor.AQUA + "[CloneEconomy] 비활성화 중");
 
 		getServer().getPluginManager().registerEvents(new PlayerJoin(), this);
 		getCommand("돈").setExecutor(new CloneEconomyMoney(this));

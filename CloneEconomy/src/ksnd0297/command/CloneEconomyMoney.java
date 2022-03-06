@@ -19,14 +19,17 @@ public class CloneEconomyMoney implements CommandExecutor {
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String s, String[] args) {
-		Player Sender = (Player) sender;
-		String SenderUuid = Sender.getUniqueId().toString();
+		Player player = (Player) sender;
+		String SenderUuid = player.getUniqueId().toString();
 		CloneEconomyDB db = new CloneEconomyDB();
 
-		if (args[0].equals("확인")) {
+		switch (args[0]) {
+		case "확인": {
 			String Money = Integer.toString(db.getMoney(SenderUuid.toString()));
-			Sender.sendMessage(ChatColor.BLUE + "현재 " + Sender.getName() + "님이 가지고 있는 돈은 " + Money + "원입니다.");
-		} else if (args[0].equals("송금")) {
+			player.sendMessage(ChatColor.BLUE + "현재 " + player.getName() + "님이 가지고 있는 돈은 " + Money + "원입니다.");
+			break;
+		}
+		case "송금": {
 			if (args.length != 3)
 				return false;
 
@@ -40,13 +43,17 @@ public class CloneEconomyMoney implements CommandExecutor {
 						int ReceiverMoney = db.getMoney(ReceiverUuid);
 						db.UpdateMoney(SenderUuid, SenderMoney - SendMoney);
 						db.UpdateMoney(ReceiverUuid, ReceiverMoney + SendMoney);
-						Sender.sendMessage(ChatColor.BLUE + Receiver.getName() + "님에게 " + SendMoney + "가 송금되었습니다.");
+						player.sendMessage(ChatColor.BLUE + Receiver.getName() + "님에게 " + SendMoney + "가 송금되었습니다.");
 						return true;
 					}
 				}
 			} else {
-				Sender.sendMessage(ChatColor.BLUE + "고객님의 잔액이 부족합니다.");
+				player.sendMessage(ChatColor.BLUE + "고객님의 잔액이 부족합니다.");
 			}
+		}
+		default: {
+			player.sendMessage(ChatColor.BLUE + "잘못된 명령어 접근입니다.");
+		}
 		}
 
 		return true;
