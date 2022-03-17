@@ -19,7 +19,7 @@ public class RDParser {
 	int token, ch;
 	private PushbackInputStream input;
 
-	RDParser(PushbackInputStream is) {
+	public RDParser(PushbackInputStream is) {
 		input = is;
 	}
 
@@ -28,13 +28,16 @@ public class RDParser {
 		System.exit(1);
 	}
 
-	void command() {
+	boolean command() {
 		/* command -> expr '\n' */
 		expr();
-		if (token == '\n') /* end the parse and print the result */
+		if (token == '\n') /* end the parse and print the result */ {
 			System.out.println("good syntax");
-		else
+			return true;
+		} else {
 			error();
+			return false;
+		}
 	}
 
 	void match(int c) {
@@ -185,9 +188,9 @@ public class RDParser {
 		}
 	}
 
-	void parse() {
+	public boolean parse() {
 		token = getToken(); // get the first character
-		command(); // call the parsing command
+		return command(); // call the parsing command
 	}
 
 	public static void main(String[] args) {
