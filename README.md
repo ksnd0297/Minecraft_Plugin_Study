@@ -15,4 +15,4 @@ e.getHand().equals(EquipmentSlot.HAND)를 통해 OFFHAND의 작동을 방지
 Material.WOODEN_AXE를 사용하려 하면 api-version을 plugin.yml에 기재하여 달라는 문제 발생
 plugin.yml에 api-version : 1.18 을 기재하여 해결 (당시 버전 : 1.18.1은 최신버전이라 api-version이 1.18과 동일하다고 예상)
 월드에딧의 채우기 명령어(CloneWorldEditFill) 에서 WorldEdit 객체의 메소드를 호출(Null 값 리턴)했으나 값이 제대로 안 들어와짐
-객체 자체를 넘겨주는 형식으로 해야함. 자바에 대한 이해 
+객체 자체를 넘겨주는 형식으로 해야함. 자바에 대한 이해 필요
