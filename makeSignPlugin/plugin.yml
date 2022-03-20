@@ -1,5 +1,10 @@
 main : ksnd0297.makeSignPlugin.main.MakeSignPluginMain
 name : makeSign
 version : 1.0.0
+api-version : 1.18
 author : ksnd0297
 description : 물건의 가격을 알려주는 특수 목적 표지판을 제작
+commands :
+  sign :
+    description : 특수 표지판 제작
+    usage : /sign [물건명 | 구매액 | 판매액]

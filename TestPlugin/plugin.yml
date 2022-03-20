@@ -1,0 +1,5 @@
+main : ksnd0297.main.TestPlugin
+name : TestPlugin
+version : 1.18.2
+author : ksnd0297
+description : Test_Plugin
