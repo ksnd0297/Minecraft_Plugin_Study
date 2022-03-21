@@ -1,39 +1,52 @@
 package ksnd0297.makeSignPlugin.command;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.Connection;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.block.Block;
+import org.bukkit.block.Sign;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
+
+import ksnd0297.makeSignPlugin.db.ApiSign;
 
 public class MakeSpecialSign implements CommandExecutor {
+	Connection con = null;
+	ApiSign api;
+
+	public MakeSpecialSign(Connection con) {
+		this.con = con;
+		api = new ApiSign(con);
+	}
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String s, String[] args) {
+
 		Player player = (Player) sender;
-		if (args.length != 0)
+		if (args.length != 3)
 			return false;
 
 		if (player.isOp()) {
 			try {
-				ItemStack sign = new ItemStack(Material.OAK_SIGN);
-				ItemMeta itemMeta = sign.getItemMeta();
-				itemMeta.setDisplayName(ChatColor.BLUE + "<특수 목적 표지판>");
-				List<String> loreList = new ArrayList<String>();
-				loreList.add("<물건 명>");
-				loreList.add("<구매액>");
-				loreList.add("<판매액>");
-				itemMeta.setLore(loreList);
-				itemMeta.setCustomModelData(1151);
+				Block block = player.getTargetBlock(null, 10);
+				block.setType(Material.OAK_SIGN);
 
-				sign.setItemMeta(itemMeta);
-				player.getInventory().addItem(sign);
+				Sign sign = (Sign) block.getState();
+				sign.setLine(0, ChatColor.WHITE + "<" + args[0] + ">");
+				sign.setLine(1, ChatColor.WHITE + "<" + args[1] + ">");
+				sign.setLine(2, ChatColor.WHITE + "<" + args[2] + ">");
+				sign.update();
+
+				String position = "111";
+				String item = args[0];
+				Integer buy = Integer.parseInt(args[1]);
+				Integer sell = Integer.parseInt(args[2]);
+				String matchItem = "AAA";
+
+				api.insertSign(position, item, buy, sell, matchItem);
 
 			} catch (Exception error) {
 				error.printStackTrace();
