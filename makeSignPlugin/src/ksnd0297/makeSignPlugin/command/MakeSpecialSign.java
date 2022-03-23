@@ -12,6 +12,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import ksnd0297.makeSignPlugin.db.ApiSign;
+import ksnd0297.makeSignPlugin.main.MySign;
 
 public class MakeSpecialSign implements CommandExecutor {
 	Connection con = null;
@@ -26,7 +27,7 @@ public class MakeSpecialSign implements CommandExecutor {
 	public boolean onCommand(CommandSender sender, Command command, String s, String[] args) {
 
 		Player player = (Player) sender;
-		if (args.length != 3)
+		if (args.length != 4)
 			return false;
 
 		if (player.isOp()) {
@@ -35,18 +36,19 @@ public class MakeSpecialSign implements CommandExecutor {
 				block.setType(Material.OAK_SIGN);
 
 				Sign sign = (Sign) block.getState();
-				sign.setLine(0, ChatColor.WHITE + "<" + args[0] + ">");
-				sign.setLine(1, ChatColor.WHITE + "<" + args[1] + ">");
-				sign.setLine(2, ChatColor.WHITE + "<" + args[2] + ">");
+				sign.setLine(0, args[0]);
+				sign.setLine(1, ChatColor.WHITE + args[1]);
+				sign.setLine(2, ChatColor.WHITE + args[2]);
+				sign.setLine(3, "ㅤㅤㅤㅤㅤ"); // 'ㅤ' * 5 공백문자
 				sign.update();
 
-				String position = "111";
 				String item = args[0];
 				Integer buy = Integer.parseInt(args[1]);
 				Integer sell = Integer.parseInt(args[2]);
-				String matchItem = "AAA";
+				String matchItem = "minecraft:" + args[3];
+				MySign mySign = new MySign(sign, item, buy, sell, matchItem);
 
-				api.insertSign(position, item, buy, sell, matchItem);
+				api.insertSign(mySign);
 
 			} catch (Exception error) {
 				error.printStackTrace();
@@ -55,5 +57,4 @@ public class MakeSpecialSign implements CommandExecutor {
 
 		return true;
 	}
-
 }
