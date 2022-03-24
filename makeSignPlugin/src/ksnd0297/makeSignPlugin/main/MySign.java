@@ -20,9 +20,9 @@ public class MySign {
 	}
 
 	public MySign(int x, int y, int z, String item, int buy, int sell, String matchItem) {
-		this.x = this.x;
-		this.y = this.y;
-		this.z = this.z;
+		this.x = x;
+		this.y = y;
+		this.z = z;
 		this.item = item;
 		this.buy = buy;
 		this.sell = sell;

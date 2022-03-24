@@ -46,6 +46,7 @@ public class ApiSign {
 				int buy = rs.getInt(5);
 				int sell = rs.getInt(6);
 				String matchItem = rs.getString(7);
+
 				MySign mySign = new MySign(getX, getY, getZ, item, buy, sell, matchItem);
 				map.put(item, mySign);
 			}

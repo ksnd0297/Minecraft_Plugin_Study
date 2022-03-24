@@ -14,28 +14,38 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import ksnd0297.makeSignPlugin.main.MySign;
 
 public class ListenerClickEvent implements Listener {
-	HashMap<String, MySign> map;
+	HashMap<String, MySign> signMap;
 
 	public ListenerClickEvent(HashMap<String, MySign> map) {
-		map = this.map;
+		this.signMap = map;
 	}
 
 	@EventHandler
-	public void ClickEvent(PlayerInteractEvent event) {
+	public void clickEvent(PlayerInteractEvent event) {
 		Player player = event.getPlayer();
 		Action action = event.getAction();
-		Block block = event.getClickedBlock();
 
-		if (block.getType() == Material.OAK_SIGN) {
-			Sign sign = (Sign) block.getState();
-			String auth = sign.getLine(3);
-			if (auth.equals("ㅤㅤㅤㅤㅤ")) {
-				if (action == Action.LEFT_CLICK_BLOCK) {
+		if (action == Action.LEFT_CLICK_BLOCK) { // 구매
+			Block block = event.getClickedBlock();
+			if (block.getType() == Material.OAK_SIGN) {
+				Sign sign = (Sign) block.getState();
+				if (signMap.containsKey(sign.getLine(0))) {
+					MySign mySign = signMap.get(sign.getLine(0));
 
-					MySign mySign = map.get(sign.getLine(0));
-					System.out.println(mySign.sell);
+					if (checkIdentify(mySign, sign)) {
+						System.out.println("AAA");
+					} else {
+						System.out.println("BBB");
+					}
 				}
 			}
 		}
+	}
+
+	public boolean checkIdentify(MySign mySign, Sign sign) {
+		if (mySign.x == sign.getX() && mySign.y == sign.getY() && mySign.z == sign.getZ()) {
+			return true;
+		}
+		return false;
 	}
 }

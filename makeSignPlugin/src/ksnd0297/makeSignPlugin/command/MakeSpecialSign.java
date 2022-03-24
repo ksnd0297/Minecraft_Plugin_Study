@@ -1,7 +1,5 @@
 package ksnd0297.makeSignPlugin.command;
 
-import java.sql.Connection;
-
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -15,12 +13,10 @@ import ksnd0297.makeSignPlugin.db.ApiSign;
 import ksnd0297.makeSignPlugin.main.MySign;
 
 public class MakeSpecialSign implements CommandExecutor {
-	Connection con = null;
-	ApiSign api;
+	ApiSign apiSign;
 
-	public MakeSpecialSign(Connection con) {
-		this.con = con;
-		api = new ApiSign(con);
+	public MakeSpecialSign(ApiSign api) {
+		this.apiSign = api;
 	}
 
 	@Override
@@ -39,7 +35,7 @@ public class MakeSpecialSign implements CommandExecutor {
 				sign.setLine(0, args[0]);
 				sign.setLine(1, ChatColor.WHITE + args[1]);
 				sign.setLine(2, ChatColor.WHITE + args[2]);
-				sign.setLine(3, "ㅤㅤㅤㅤㅤ"); // 'ㅤ' * 5 공백문자
+				// sign.getBlockData();
 				sign.update();
 
 				String item = args[0];
@@ -48,7 +44,7 @@ public class MakeSpecialSign implements CommandExecutor {
 				String matchItem = "minecraft:" + args[3];
 				MySign mySign = new MySign(sign, item, buy, sell, matchItem);
 
-				api.insertSign(mySign);
+				apiSign.insertSign(mySign);
 
 			} catch (Exception error) {
 				error.printStackTrace();
