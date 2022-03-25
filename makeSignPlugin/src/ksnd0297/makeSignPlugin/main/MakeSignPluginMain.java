@@ -20,24 +20,34 @@ import ksnd0297.makeSignPlugin.event.ListenerJoinEvent;
 public class MakeSignPluginMain extends JavaPlugin implements Listener {
 	ConsoleCommandSender console = Bukkit.getConsoleSender();
 	PluginManager pluginManager = Bukkit.getServer().getPluginManager();
-	private Connection con = null;
+	private Connection con;
+	public ApiSign apiSign;
+	public ApiUser apiUser;
+
+	HashMap<String, MySign> signMap;
+	HashMap<String, Integer> userMap;
+
+	public MakeSignPluginMain() {
+		this.con = DBConnection.connection();
+		this.apiSign = new ApiSign(this.con);
+		this.apiUser = new ApiUser(this.con);
+
+		this.signMap = apiSign.selectSign();
+		this.userMap = apiUser.selectUser();
+	}
 
 	@Override
 	public void onEnable() {
-		con = DBConnection.connection();
-		ApiSign apiSign = new ApiSign(con);
-		ApiUser apiUser = new ApiUser(con);
-		HashMap<String, MySign> signMap = apiSign.selectSign();
-		HashMap<String, Integer> userMap = apiUser.selectUser();
 		console.sendMessage(ChatColor.BLUE + "[makeSignPlugin 활성화 중 입니다]");
 
 		getCommand("sign").setExecutor(new MakeSpecialSign(apiSign));
-		pluginManager.registerEvents(new ListenerClickEvent(signMap), this);
+		pluginManager.registerEvents(new ListenerClickEvent(signMap, userMap), this);
 		pluginManager.registerEvents(new ListenerJoinEvent(apiUser, userMap), this);
 	}
 
 	@Override
 	public void onDisable() {
 		console.sendMessage(ChatColor.RED + "[makeSignPlugin 비활성화 중 입니다]");
+
 	}
 }

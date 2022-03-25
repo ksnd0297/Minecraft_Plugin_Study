@@ -10,33 +10,42 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.inventory.EquipmentSlot;
 
 import ksnd0297.makeSignPlugin.main.MySign;
 
 public class ListenerClickEvent implements Listener {
 	HashMap<String, MySign> signMap;
+	HashMap<String, Integer> userMap;
 
-	public ListenerClickEvent(HashMap<String, MySign> map) {
-		this.signMap = map;
+	public ListenerClickEvent(HashMap<String, MySign> signMap, HashMap<String, Integer> userMap) {
+		this.signMap = signMap;
+		this.userMap = userMap;
 	}
 
 	@EventHandler
 	public void clickEvent(PlayerInteractEvent event) {
 		Player player = event.getPlayer();
 		Action action = event.getAction();
+		String uuid = player.getUniqueId().toString();
+		Block block = event.getClickedBlock();
 
-		if (action == Action.LEFT_CLICK_BLOCK) { // 구매
-			Block block = event.getClickedBlock();
-			if (block.getType() == Material.OAK_SIGN) {
-				Sign sign = (Sign) block.getState();
-				if (signMap.containsKey(sign.getLine(0))) {
-					MySign mySign = signMap.get(sign.getLine(0));
+		if (block.getType() == Material.OAK_SIGN) {
+			Sign sign = (Sign) block.getState();
+			if (signMap.containsKey(sign.getLine(0)) && userMap.containsKey(uuid)) {
+				MySign mySign = signMap.get(sign.getLine(0));
+				if (checkIdentify(mySign, sign)) {
+					int userMoney = userMap.get(uuid);
+					int buyMoney = mySign.buy; // 구매가격
+					int sellMoney = mySign.sell; // 판매가격격
 
-					if (checkIdentify(mySign, sign)) {
-						System.out.println("AAA");
-					} else {
-						System.out.println("BBB");
-					}
+					if (action == Action.LEFT_CLICK_BLOCK) // 구매
+						userMap.put(uuid, userMoney - buyMoney);
+					else if (event.getAction() == Action.RIGHT_CLICK_BLOCK // 판매
+							&& event.getHand().equals(EquipmentSlot.HAND))
+						userMap.put(uuid, userMoney + sellMoney);
+
+					player.sendMessage("거래가 완료되었습니다.");
 				}
 			}
 		}
