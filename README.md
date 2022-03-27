@@ -5,6 +5,7 @@
 
 ## 이코노미 플러그인
 DB를 마인크래프트 서버를 실행한  채로 SQLite 프로그램에서 Delete 등 DB를 변경하는 작업을 할 시 Lock이 걸리는 문제 발생
+economy DB와 User DB를 따로 두어서 작업 수행
 
 ## PlayerInteractEvent
 PlayerInteractEvent에 관하여 RIGHT_CLICK 에는 일반 HAND 와 OFFHAND 가 2번 들어가게 되어 함수가 두 번 실행되는 문제가 발생
