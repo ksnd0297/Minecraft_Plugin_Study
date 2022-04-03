@@ -1,16 +1,16 @@
-package me.ksnd0297.Launch;
+package me.ksnd0297.Doctor;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin {
+
 	@Override
 	public void onEnable() {
-		this.getCommand("launch").setExecutor(new Fly());
+		this.getCommand("Doctor").setExecutor(new Heal());
 	}
 
 	@Override
 	public void onDisable() {
 
 	}
-
 }

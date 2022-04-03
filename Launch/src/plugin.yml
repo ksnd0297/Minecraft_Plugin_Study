@@ -1,1 +1,9 @@
 main: me.ksnd0297.Launch.Main
+name: Launch 
+version: 1.0.0
+author: ksnd0297
+api-version: 1.18
+
+commands:
+  Launch:
+    aliases: lch

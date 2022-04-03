@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/김동환/Desktop/Minecraft Server_1.8.2/bundler/libraries/spigot-api-1.18.2-R0.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="C:/Users/김동환/Desktop/Minecraft Server_1.8.2/bundler/libraries/bungeecord-chat-1.16-R0.4.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
