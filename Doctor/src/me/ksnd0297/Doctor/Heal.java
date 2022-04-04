@@ -45,7 +45,7 @@ public class Heal implements CommandExecutor {
 				return true;
 			}
 			player.sendMessage(ChatColor.RED + "Usage: /doctor");
-		}
+		}d
 		return false;
 	}
 
